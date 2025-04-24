@@ -17,5 +17,5 @@ export const sampleNews = [
       summary: "Economists are stunned by the latest trends in global trading...",
       image: "https://via.placeholder.com/400x200",
     },
-  ];
+  ]; 
   
