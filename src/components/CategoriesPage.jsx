@@ -1,10 +1,8 @@
-// export default CategoriesPage;
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const categories = ["World", "Tech", "Sports", "Entertainment", "Business", "Health"];
 
-// Map display categories to NewsAPI categories
 const categoryMapping = {
   World: "general",
   Tech: "technology",
@@ -22,7 +20,8 @@ const CategoriesPage = () => {
   const fetchCategoryNews = async (category) => {
     setLoading(true);
     try {
-      const apiKey = "294b857649fb4b32a78965fe8c113b3f";
+      // const apiKey = "294b857649fb4b32a78965fe8c113b3f";
+      const apiKey = "5e5da94937bd4a389134cbfbfc735d3d";
       const mappedCategory = categoryMapping[category] || "general";
       const response = await axios.get(
         `https://newsapi.org/v2/top-headlines?country=us&category=${mappedCategory}&pageSize=10&apiKey=${apiKey}`
@@ -40,11 +39,24 @@ const CategoriesPage = () => {
     }
   }, [selectedCategory]);
 
+  // ✅ UPDATED handleSave with id
+  const handleSave = (article) => {
+    const saved = JSON.parse(localStorage.getItem("savedNews")) || [];
+    const alreadySaved = saved.some((a) => a.url === article.url);
+    if (!alreadySaved) {
+      const articleWithId = { ...article, id: Date.now() }; // 👈 Add a unique id
+      saved.push(articleWithId);
+      localStorage.setItem("savedNews", JSON.stringify(saved));
+      alert("Article saved!");
+    } else {
+      alert("Already saved.");
+    }
+  };
+
   return (
     <div className="p-4">
       <h2 className="text-2xl font-bold text-center mb-4">News by Category</h2>
 
-      {/* Categories */}
       <div className="flex flex-wrap gap-2 justify-center mb-6">
         {categories.map((cat, i) => (
           <button
@@ -59,7 +71,6 @@ const CategoriesPage = () => {
         ))}
       </div>
 
-      {/* Loading Spinner */}
       {loading ? (
         <div className="flex justify-center items-center my-10">
           <div className="w-12 h-12 border-4 border-blue-500 border-dashed rounded-full animate-spin"></div>
@@ -84,6 +95,12 @@ const CategoriesPage = () => {
                 >
                   Read More
                 </a>
+                <button
+                  onClick={() => handleSave(article)}
+                  className="mt-2 block text-sm text-white bg-green-500 px-3 py-1 rounded hover:bg-green-600"
+                >
+                  Save
+                </button>
               </div>
             </div>
           ))}
@@ -94,5 +111,4 @@ const CategoriesPage = () => {
 };
 
 export default CategoriesPage;
-
 

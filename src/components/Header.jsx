@@ -28,17 +28,9 @@ const Header = () => {
           Saved
         </Link>
         <Link to="/search" className="text-gray-600 hover:text-blue-500">
-  Search
-</Link>
+          Search
+        </Link>
       </nav>
-      <input
-        type="text"
-        placeholder="Search..."
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-        onKeyDown={handleSearch}
-        className="mt-2 sm:mt-0 sm:ml-4 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-      />
     </header>
   );
 };

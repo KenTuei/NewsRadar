@@ -1,4 +1,5 @@
-const API_KEY = '294b857649fb4b32a78965fe8c113b3f';
+//const API_KEY = '294b857649fb4b32a78965fe8c113b3f';
+const API_KEY = '5e5da94937bd4a389134cbfbfc735d3d';
 const BASE_URL = `https://newsapi.org/v2/top-headlines?country=us&pageSize=20&apiKey=${API_KEY}`;
 
 export const fetchNews = async () => {

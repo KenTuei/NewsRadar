@@ -18,4 +18,3 @@ const CategoryFilter = ({ onCategorySelect }) => {
 };
 
 export default CategoryFilter;
-
