@@ -30,7 +30,7 @@ const Home = () => {
   const uniqueSources = [...new Set(allNews.map(news => news.source))];
 
   return (
-    <div>
+    <div className='bg-slate-300'>
       <Featured />
       {/* <SourceFilter
         sources={uniqueSources}

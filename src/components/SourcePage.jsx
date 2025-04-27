@@ -6,7 +6,7 @@ const SourcePage = () => {
   const sources = ["CNN", "BBC", "Al Jazeera", "Reuters", "The Guardian"];
 
   return (
-    <div className="p-6">
+    <div className="p-6 bg-slate-300">
       <h2 className="text-2xl font-bold text-center mb-4">Filter by Source</h2>
       <SourceFilter
         sources={sources}
