@@ -26,7 +26,7 @@ const Search = () => {
   };
 
   return (
-    <div className="p-4">
+    <div className="p-4 bg-slate-300">
       <form onSubmit={handleSearch} className="flex justify-center mb-6">
         <input
           type="text"
