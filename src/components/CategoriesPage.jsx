@@ -142,7 +142,7 @@ const CategoriesPage = () => {
     //     </div>
     //   )}
     // </div>
-    <div className="p-6 md:p-10 bg-gray-50 min-h-screen">
+    <div className="p-6 md:p-10 bg-slate-300 min-h-screen">
       <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">
         News by Category
       </h2>
@@ -156,7 +156,7 @@ const CategoriesPage = () => {
               selectedCategory === cat
                 ? "bg-blue-600 text-white"
                 : "bg-white text-blue-600 border border-blue-400"
-            } hover:bg-blue-100 transition duration-300`}
+            } hover:bg-blue-200 transition duration-300`}
           >
             {cat}
           </button>

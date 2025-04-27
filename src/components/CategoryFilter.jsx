@@ -3,7 +3,7 @@ const CategoryFilter = ({ onCategorySelect }) => {
   const categories = ['World', 'Tech', 'Sports', 'Entertainment', 'Business', 'Health'];
 
   return (
-    <div className="flex flex-wrap gap-2 justify-center p-4">
+    <div className="flex flex-wrap gap-2 justify-center bg-slate-300 p-4">
       {categories.map((cat, i) => (
         <button
           key={i}
