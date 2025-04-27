@@ -36,7 +36,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 border-t mt-10 py-6 text-center">
+    <footer className="bg-gray-900 border-t py-6 text-center">
       <div className="flex flex-col md:flex-row justify-center items-center gap-4 text-gray-300 text-sm">
         <Link
           to="/about"

@@ -12,8 +12,9 @@ export const fetchNews = async () => {
         id: index + 1,
         title: item.title,
         summary: item.description || 'No summary available.',
-        image: item.urlToImage || 'https://via.placeholder.com/400x200',
+        image: item.urlToImage || 'https://img.freepik.com/free-vector/gradient-breaking-news-background_23-2151142406.jpg?t=st=1745767406~exp=1745771006~hmac=fbb5ea226a931bfbf8a57edac1a821d6f646598058a294a6e55ea5ee1192d02a&w=996',
         source: item.source.name || 'Unknown Source', // ✅ include this
+        articleUrl: item.url
       }));
     }
 
