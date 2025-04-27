@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Swal from "sweetalert2"; // <== Import SweetAlert2
 
 const Saved = () => {
   const [savedArticles, setSavedArticles] = useState([]);
@@ -7,6 +8,30 @@ const Saved = () => {
     const stored = JSON.parse(localStorage.getItem("savedNews")) || [];
     setSavedArticles(stored);
   }, []);
+
+  const handleDelete = (url) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to recover this article!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const updatedArticles = savedArticles.filter(article => article.url !== url);
+        setSavedArticles(updatedArticles);
+        localStorage.setItem("savedNews", JSON.stringify(updatedArticles));
+
+        Swal.fire(
+          "Deleted!",
+          "The article has been deleted.",
+          "success"
+        );
+      }
+    });
+  };
 
   return (
     <div className="p-4">
@@ -33,6 +58,12 @@ const Saved = () => {
                 >
                   Read More
                 </a>
+                <button
+                  onClick={() => handleDelete(article.url)}
+                  className="mt-2 block text-sm text-white bg-red-500 px-3 py-1 rounded hover:bg-red-600"
+                >
+                  Delete
+                </button>
               </div>
             </div>
           ))}
