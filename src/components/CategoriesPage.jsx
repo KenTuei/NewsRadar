@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Swal from "sweetalert2"; // 👈 import sweetalert2
 
 const categories = ["All", "World", "Tech", "Sports", "Entertainment", "Business", "Health"];
 
@@ -13,14 +14,14 @@ const categoryMapping = {
 };
 
 const CategoriesPage = () => {
-  const [selectedCategory, setSelectedCategory] = useState("All"); // Default to all news 
+  const [selectedCategory, setSelectedCategory] = useState("All"); // Default to "All"
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const fetchCategoryNews = async (category) => {
     setLoading(true);
     try {
-      const apiKey = "5e5da94937bd4a389134cbfbfc735d3d"; // your API key
+      const apiKey = "5e5da94937bd4a389134cbfbfc735d3d";
 
       let url = "";
 
@@ -40,19 +41,33 @@ const CategoriesPage = () => {
   };
 
   useEffect(() => {
-    fetchCategoryNews(selectedCategory); // Fetch on category change
+    fetchCategoryNews(selectedCategory);
   }, [selectedCategory]);
 
   const handleSave = (article) => {
     const saved = JSON.parse(localStorage.getItem("savedNews")) || [];
     const alreadySaved = saved.some((a) => a.url === article.url);
+
     if (!alreadySaved) {
       const articleWithId = { ...article, id: Date.now() };
       saved.push(articleWithId);
       localStorage.setItem("savedNews", JSON.stringify(saved));
-      alert("Article saved!");
+
+      Swal.fire({
+        icon: "success",
+        title: "Saved!",
+        text: "The article has been saved successfully.",
+        timer: 2000,
+        showConfirmButton: false,
+      });
     } else {
-      alert("Already saved.");
+      Swal.fire({
+        icon: "info",
+        title: "Already Saved",
+        text: "You have already saved this article.",
+        timer: 2000,
+        showConfirmButton: false,
+      });
     }
   };
 
@@ -122,5 +137,3 @@ const CategoriesPage = () => {
 };
 
 export default CategoriesPage;
-
-
