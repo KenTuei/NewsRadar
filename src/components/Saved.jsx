@@ -17,7 +17,7 @@ const Saved = () => {
       showCancelButton: true,
       confirmButtonColor: "#d33",
       cancelButtonColor: "#3085d6",
-      confirmButtonText: "Yes, delete it!",
+      confirmButtonText: "Yes, delete it! ",
     }).then((result) => {
       if (result.isConfirmed) {
         const updatedArticles = savedArticles.filter(article => article.url !== url);
