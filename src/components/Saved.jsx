@@ -70,7 +70,7 @@ const Saved = () => {
     //     </div>
     //   )}
     // </div>
-    <div className="p-6 md:p-10 bg-gray-50 min-h-screen">
+    <div className="p-6 md:p-10 bg-slate-300 min-h-screen">
   <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">Saved Articles</h2>
 
   {savedArticles.length === 0 ? (
