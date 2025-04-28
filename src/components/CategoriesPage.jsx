@@ -30,7 +30,7 @@ const CategoriesPage = () => {
   const fetchCategoryNews = async (category) => {
     setLoading(true);
     try {
-      const apiKey = "5e5da94937bd4a389134cbfbfc735d3d";
+      const apiKey = "a18f5c0469964e399d3a8468acf1dd8e";
 
       let url = "";
 
