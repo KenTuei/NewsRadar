@@ -24,13 +24,12 @@ const Featured = () => {
         prevIndex === images.length - 1 ? 0 : prevIndex + 1
       );
     }, 4000);
-
     return () => clearInterval(interval);
   }, []);
 
   return (
     <section className="p-4">
-      <div className="relative overflow-hidden shadow-lg w-full h-[500px] rounded-md">
+      <div className="relative overflow-hidden shadow-lg w-full h-[220px] sm:h-[350px] md:h-[450px] lg:h-[550px] rounded-xl">
         {images.map((image, index) => (
           <div
             key={index}
@@ -42,9 +41,9 @@ const Featured = () => {
               src={image.url}
               alt={`Slide ${index}`}
               className="object-cover w-full h-full"
+              loading="lazy"
             />
-           
-            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 bg-blue-400 bg-opacity-70 text-white text-2xl font-bold p-3 rounded-lg shadow-md">
+            <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 bg-blue-500/70 text-white text-lg sm:text-xl md:text-2xl font-semibold p-2 sm:p-3 rounded-lg shadow-md text-center w-11/12 sm:w-auto">
               {image.caption}
             </div>
           </div>
